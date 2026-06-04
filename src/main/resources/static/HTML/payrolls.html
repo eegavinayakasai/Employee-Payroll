@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payrolls | Employee Payroll</title>
+    <link rel="stylesheet" href="../CSS/payrolls.css">
+</head>
+<body>
+    <header>
+        <h1>Payrolls</h1>
+        <nav>
+            <a href="./dashboard.html">Dashboard</a>
+            <a href="./employees.html">All Employees</a>
+            <a href="./payrolls.html">All Payrolls</a>
+            <a href="./login.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Search Payrolls</h2>
+            <div>
+                <label for="payrollId">Payroll ID</label>
+                <input type="number" id="payrollId" name="payrollId">
+            </div>
+
+            <div>
+                <label for="employeeId">Employee ID</label>
+                <input type="number" id="employeeId" name="employeeId">
+            </div>
+
+            <div>
+                <label for="employeeName">Employee Name</label>
+                <input type="text" id="employeeName" name="employeeName">
+            </div>
+
+            <div>
+                <label for="month">Month</label>
+                <select id="month" name="month">
+                    <option value="">All</option>
+                    <option value="JAN">JAN</option>
+                    <option value="FEB">FEB</option>
+                    <option value="MAR">MAR</option>
+                    <option value="APR">APR</option>
+                    <option value="MAY">MAY</option>
+                    <option value="JUN">JUN</option>
+                    <option value="JUL">JUL</option>
+                    <option value="AUG">AUG</option>
+                    <option value="SEP">SEP</option>
+                    <option value="OCT">OCT</option>
+                    <option value="NOV">NOV</option>
+                    <option value="DEC">DEC</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="year">Year</label>
+                <input type="number" id="year" name="year">
+            </div>
+
+            <div>
+                <label for="minNetSalary">Minimum Net Salary</label>
+                <input type="number" id="minNetSalary" name="minNetSalary" min="0" step="0.01">
+            </div>
+
+            <div>
+                <label for="maxNetSalary">Maximum Net Salary</label>
+                <input type="number" id="maxNetSalary" name="maxNetSalary" min="0" step="0.01">
+            </div>
+
+            <button type="button" id="findPayrollsButton">Search</button>
+            <button type="button" id="loadAllPayrollsButton">Load All Payrolls</button>
+        </section>
+
+        <section>
+            <h2>Payroll List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
+                        <th>Month</th>
+                        <th>Year</th>
+                        <th>Base Salary</th>
+                        <th>Bonus</th>
+                        <th>Deductions</th>
+                        <th>Total Working Days</th>
+                        <th>Days Present</th>
+                        <th>Net Salary</th>
+                        <th>Payroll Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="payrollsTableBody">
+                    <tr>
+                        <td colspan="12">No payrolls loaded.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="../JAVASCRIPT/auth.js"></script>
+    <script src="../JAVASCRIPT/payrolls.js"></script>
+</body>
+</html>

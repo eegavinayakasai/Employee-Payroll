@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payslip | Employee Payroll</title>
+    <link rel="stylesheet" href="../CSS/payslip.css">
+</head>
+<body>
+    <header>
+        <h1>Payslip</h1>
+        <nav>
+            <a href="./dashboard.html">Dashboard</a>
+            <a href="./employees.html">All Employees</a>
+            <a href="./payrolls.html">All Payrolls</a>
+            <a href="./login.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Generate Payslip</h2>
+
+            <div>
+                <label for="employeeId" class="required">Employee ID</label>
+                <input type="number" id="employeeId" name="employeeId" required>
+            </div>
+
+            <div>
+                <label for="month" class="required">Month</label>
+                <select id="month" name="month" required>
+                    <option value="">Select month</option>
+                    <option value="JAN">JAN</option>
+                    <option value="FEB">FEB</option>
+                    <option value="MAR">MAR</option>
+                    <option value="APR">APR</option>
+                    <option value="MAY">MAY</option>
+                    <option value="JUN">JUN</option>
+                    <option value="JUL">JUL</option>
+                    <option value="AUG">AUG</option>
+                    <option value="SEP">SEP</option>
+                    <option value="OCT">OCT</option>
+                    <option value="NOV">NOV</option>
+                    <option value="DEC">DEC</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="year" class="required">Year</label>
+                <input type="number" id="year" name="year" min="2000" required>
+            </div>
+
+            <button type="button" id="generatePayslipButton">Generate Payslip</button>
+            <button type="button" id="printPayslipButton">Print Payslip</button>
+            <p id="payslipMessage"></p>
+        </section>
+
+        <section id="payslipDetails">
+            <h2>Payslip Details</h2>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Employee ID</th>
+                        <td id="payslipEmployeeId"></td>
+                    </tr>
+                    <tr>
+                        <th>Employee Name</th>
+                        <td id="payslipEmployeeName"></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td id="payslipEmail"></td>
+                    </tr>
+                    <tr>
+                        <th>Department</th>
+                        <td id="payslipDepartment"></td>
+                    </tr>
+                    <tr>
+                        <th>Designation</th>
+                        <td id="payslipDesignation"></td>
+                    </tr>
+                    <tr>
+                        <th>Employee Type</th>
+                        <td id="payslipEmployeeType"></td>
+                    </tr>
+                    <tr>
+                        <th>Bank Name</th>
+                        <td id="payslipBankName"></td>
+                    </tr>
+                    <tr>
+                        <th>Account Number</th>
+                        <td id="payslipAccountNumber"></td>
+                    </tr>
+                    <tr>
+                        <th>Month</th>
+                        <td id="payslipMonth"></td>
+                    </tr>
+                    <tr>
+                        <th>Year</th>
+                        <td id="payslipYear"></td>
+                    </tr>
+                    <tr>
+                        <th>Base Salary</th>
+                        <td id="payslipBaseSalary"></td>
+                    </tr>
+                    <tr>
+                        <th>Bonus</th>
+                        <td id="payslipBonus"></td>
+                    </tr>
+                    <tr>
+                        <th>Deductions</th>
+                        <td id="payslipDeductions"></td>
+                    </tr>
+                    <tr>
+                        <th>Total Working Days</th>
+                        <td id="payslipTotalWorkingDays"></td>
+                    </tr>
+                    <tr>
+                        <th>Days Present</th>
+                        <td id="payslipDaysPresent"></td>
+                    </tr>
+                    <tr>
+                        <th>Net Salary</th>
+                        <td id="payslipNetSalary"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="../JAVASCRIPT/auth.js"></script>
+    <script src="../JAVASCRIPT/payslip.js"></script>
+</body>
+</html>

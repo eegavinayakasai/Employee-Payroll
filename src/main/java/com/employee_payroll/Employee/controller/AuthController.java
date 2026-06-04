@@ -79,15 +79,14 @@ public class AuthController {
     {
         String username = request.get("username");
         String password = request.get("password");
-        String roleStr  = request.get("role");
+//        String roleStr  = request.get("role");
 
         if (username == null || username.isBlank() ||
-                password == null || password.isBlank() ||
-                roleStr  == null || roleStr.isBlank())
+              password == null || password.isBlank())
         {
             return ResponseEntity.badRequest()
                     .body(Map.of("message",
-                            "username, password and role are required"));
+                            "username, password are required"));
         }
 
         if (usersRepo.findByUsername(username).isPresent())
@@ -96,25 +95,24 @@ public class AuthController {
                     .body(Map.of("message", "Username already exists"));
         }
 
-        Role role;
-        try {
-            role = Role.valueOf(roleStr.toUpperCase());
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest()
-                    .body(Map.of("message", "Invalid role. Use ADMIN or EMPLOYEE"));
-        }
+//        Role role;
+//        try {
+//            role = Role.valueOf(roleStr.toUpperCase());
+//        } catch (IllegalArgumentException e) {
+//            return ResponseEntity.badRequest()
+//                    .body(Map.of("message", "Invalid role. Use ADMIN or EMPLOYEE"));
+//        }
 
-        // ✅ Create and save user
         User user = new User();
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
-        user.setRole(role);
+        user.setRole(Role.EMPLOYEE);
         usersRepo.save(user);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(Map.of("message", "User registered successfully",
                         "username", username,
-                        "role", role));
+                        "role", Role.EMPLOYEE));
     }
 
 //     API for Registering ADMIN

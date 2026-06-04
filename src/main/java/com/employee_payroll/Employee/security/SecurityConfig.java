@@ -25,7 +25,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig
 {
     private final JwtFilter jwtFilter;
-    private final CustomUserDetailsService userDetailsService; // ✅ add!
+    private final CustomUserDetailsService userDetailsService;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
@@ -34,8 +34,9 @@ public class SecurityConfig
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authenticationProvider(authenticationProvider()) // ✅ add!
+                .authenticationProvider(authenticationProvider())
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/", "/index.html", "/HTML/**", "/CSS/**", "/JAVASCRIPT/**").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/employee").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/employee/**").hasRole("ADMIN")
@@ -53,7 +54,6 @@ public class SecurityConfig
         return http.build();
     }
 
-    // ✅ Add this!
     @Bean
     public AuthenticationProvider authenticationProvider()
     {

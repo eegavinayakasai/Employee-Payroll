@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Employee Payroll</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Login</h1>
+            <p>Sign in to the Employee Payroll System.</p>
+        </section>
+
+        <section>
+            <div>
+                <label for="username" class="required">Username</label>
+                <input type="text" id="username" name="username" autocomplete="username" required>
+            </div>
+
+            <div>
+                <label for="password" class="required">Password</label>
+                <input type="password" id="password" name="password" autocomplete="current-password" required>
+            </div>
+
+            <button type="button" id="loginButton">Login</button>
+            <p id="loginMessage"></p>
+        </section>
+
+        <p>
+            Don't have an account? <a href="./register.html">Register</a>
+        </p>
+    </main>
+    <script src="../JAVASCRIPT/auth.js"></script>
+    <script src="../JAVASCRIPT/login.js"></script>
+</body>
+</html>

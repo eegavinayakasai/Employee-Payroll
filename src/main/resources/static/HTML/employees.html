@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees | Employee Payroll</title>
+    <link rel="stylesheet" href="../CSS/employees.css">
+</head>
+<body>
+    <header>
+        <h1>Employees</h1>
+        <nav>
+            <a href="./dashboard.html">Dashboard</a>
+            <a href="./employees.html">All Employees</a>
+            <a href="./payrolls.html">All Payrolls</a>
+            <a href="./login.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Search Employees</h2>
+            <div>
+                <label for="searchEmployeeId">Employee ID</label>
+                <input type="number" id="searchEmployeeId" name="id">
+            </div>
+
+            <div>
+                <label for="searchName">Name</label>
+                <input type="text" id="searchName" name="name">
+            </div>
+
+            <div>
+                <label for="searchEmail">Email</label>
+                <input type="email" id="searchEmail" name="email">
+            </div>
+
+            <div>
+                <label for="searchDepartment">Department</label>
+                <input type="text" id="searchDepartment" name="department">
+            </div>
+
+            <div>
+                <label for="searchEmployeeType">Employee Type</label>
+                <select id="searchEmployeeType" name="employeeType">
+                    <option value="">All</option>
+                    <option value="FULL_TIME">Full Time</option>
+                    <option value="CONTRACT">Contract</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="searchDesignation">Designation</label>
+                <input type="text" id="searchDesignation" name="designation">
+            </div>
+
+            <div>
+                <label for="searchBankName">Bank Name</label>
+                <input type="text" id="searchBankName" name="bankName">
+            </div>
+
+            <div>
+                <label for="searchAccountNumber">Account Number</label>
+                <input type="text" id="searchAccountNumber" name="accountNumber">
+            </div>
+
+            <div>
+                <label for="searchMinBaseSalary">Minimum Base Salary</label>
+                <input type="number" id="searchMinBaseSalary" name="minBaseSalary" min="0" step="0.01">
+            </div>
+
+            <div>
+                <label for="searchMaxBaseSalary">Maximum Base Salary</label>
+                <input type="number" id="searchMaxBaseSalary" name="maxBaseSalary" min="0" step="0.01">
+            </div>
+
+            <button type="button" id="searchEmployeesButton">Search</button>
+            <button type="button" id="clearSearchButton">Clear</button>
+        </section>
+
+        <section>
+            <h2>Employee List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Type</th>
+                        <th>Base Salary</th>
+                        <th>Bank Name</th>
+                        <th>Account Number</th>
+                        <th>Employee Actions</th>
+                        <th>Payroll Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employeesTableBody">
+                    <tr>
+                        <td colspan="10">No employees loaded.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="../JAVASCRIPT/auth.js"></script>
+    <script src="../JAVASCRIPT/employees.js"></script>
+</body>
+</html>

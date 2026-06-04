@@ -1,5 +1,6 @@
 package com.employee_payroll.Employee.security;
 
+import com.employee_payroll.Employee.model.Role;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -21,7 +22,7 @@ public class JwtUtil
     @Value("${jwt.expiration}")
     private long EXPIRATION_TIME;
 
-    private SecretKey getsigningKey()
+    private SecretKey getSigningKey()
     {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
         return Keys.hmacShaKeyFor(keyBytes);
@@ -36,22 +37,17 @@ public class JwtUtil
                  .subject(username)
                  .issuedAt(new Date())
                  .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                 .signWith(getsigningKey())
+                 .signWith(getSigningKey())
                  .compact();
      }
      public String extractUsername(String token)
      {
-         return extractAllclaims(token).getSubject();
+         return extractAllClaims(token).getSubject();
      }
-
-      public String extractRole(String token)
-      {
-         return extractAllclaims(token).get("role", String.class);
-      }
 
       private boolean isTokenExpired(String token)
       {
-          return extractAllclaims(token).getExpiration().before(new Date());
+          return extractAllClaims(token).getExpiration().before(new Date());
       }
 
       public boolean validateToken(String token, String username)
@@ -59,12 +55,12 @@ public class JwtUtil
           String extractedUsername =  extractUsername(token);
           return username.equals(extractedUsername) && !isTokenExpired(token);
       }
-     public Claims extractAllclaims(String token)
+     public Claims extractAllClaims(String token)
      {
          return Jwts.parser()
-                .verifyWith(getsigningKey())
+                .verifyWith(getSigningKey())
                 .build()
                 .parseSignedClaims(token)
-                .getPayload();
+                 .getPayload();
      }
 }

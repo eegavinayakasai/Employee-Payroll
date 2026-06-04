@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Employee Payroll</title>
+    <link rel="stylesheet" href="../CSS/register.css">
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Create Account</h1>
+            <p>Register a user for the Employee Payroll System.</p>
+        </section>
+
+        <section>
+            <div>
+                <label for="username" class="required">Username</label>
+                <input type="text" id="username" name="username" autocomplete="username" required>
+            </div>
+
+            <div>
+                <label for="password" class="required">Password</label>
+                <input type="password" id="password" name="password" autocomplete="new-password" required>
+            </div>
+
+            <p class="role-info">
+                Registering as: <strong>Employee</strong>
+            </p>
+
+            <button type="button" id="registerButton">Register</button>
+            <p id="registerMessage"></p>
+        </section>
+
+        <p>
+            Already registered? <a href="./login.html">Login</a>
+        </p>
+    </main>
+    <script src="../JAVASCRIPT/auth.js"></script>
+    <script src="../JAVASCRIPT/register.js"></script>
+</body>
+</html>

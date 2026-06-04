@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Employee Payroll</title>
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>Employee Payroll Dashboard</h1>
+        <nav>
+            <a href="./dashboard.html">Dashboard</a>
+            <a href="./employees.html">All Employees</a>
+            <a href="./payrolls.html">All Payrolls</a>
+            <a href="./login.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <p>View employee, payroll, and payslip information from one place.</p>
+        </section>
+
+        <section>
+            <h2>Summary</h2>
+            <div>
+                <h3>Total Employees</h3>
+                <p id="totalEmployees">0</p>
+            </div>
+
+            <div>
+                <h3>Total Payrolls</h3>
+                <p id="totalPayrolls">0</p>
+            </div>
+
+            <div>
+                <h3>Current User</h3>
+                <p id="currentUser">Not loaded</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Search Employee</h2>
+            <div>
+                <label for="dashboardEmployeeId">Employee ID</label>
+                <input type="number" id="dashboardEmployeeId" name="id">
+            </div>
+            <div>
+                <label for="dashboardEmployeeName">Name</label>
+                <input type="text" id="dashboardEmployeeName" name="name">
+            </div>
+            <div>
+                <label for="dashboardEmployeeEmail">Email</label>
+                <input type="email" id="dashboardEmployeeEmail" name="email">
+            </div>
+            <div>
+                <label for="dashboardEmployeeDepartment">Department</label>
+                <input type="text" id="dashboardEmployeeDepartment" name="department">
+            </div>
+            <div>
+                <label for="dashboardEmployeeDesignation">Designation</label>
+                <input type="text" id="dashboardEmployeeDesignation" name="designation">
+            </div>
+            <div>
+                <label for="dashboardEmployeeType">Employee Type</label>
+                <select id="dashboardEmployeeType" name="employeeType">
+                    <option value="">All</option>
+                    <option value="FULL_TIME">Full Time</option>
+                    <option value="CONTRACT">Contract</option>
+                </select>
+            </div>
+            <div>
+                <label for="dashboardBankName">Bank Name</label>
+                <input type="text" id="dashboardBankName" name="bankName">
+            </div>
+            <div>
+                <label for="dashboardAccountNumber">Account Number</label>
+                <input type="text" id="dashboardAccountNumber" name="accountNumber">
+            </div>
+            <div>
+                <label for="dashboardMinBaseSalary">Minimum Base Salary</label>
+                <input type="number" id="dashboardMinBaseSalary" name="minBaseSalary" min="0" step="0.01">
+            </div>
+            <div>
+                <label for="dashboardMaxBaseSalary">Maximum Base Salary</label>
+                <input type="number" id="dashboardMaxBaseSalary" name="maxBaseSalary" min="0" step="0.01">
+            </div>
+            <div class="dashboard-search-actions">
+                <button type="button" id="dashboardEmployeeSearchButton">Search</button>
+            </div>
+        </section>
+    </main>
+    <script src="../JAVASCRIPT/auth.js"></script>
+    <script src="../JAVASCRIPT/dashboard.js"></script>
+</body>
+</html>
